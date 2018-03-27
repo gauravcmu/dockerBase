@@ -1,13 +1,13 @@
 package main
 
 import (
-	"fmt"
-	"time"
+	"github.com/dockerBase/ping"
+	"github.com/dockerBase/router"
 )
 
 func main() {
-	for {
-		fmt.Printf("Hellow world\n")
-		time.Sleep(time.Second)
-	}
+	rtr := router.NewRouter()
+	rtrgroup := rtr.Group("/v1.0")
+
+	ping.Routes(rtrgroup)
 }
